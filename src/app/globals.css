@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+
+/* Tailwind custom dark variant (keep this line) */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  /* Light‑mode palette */
+  --color-primary: #0077b6;
+  --color-accent: #ffb703;
+  --color-light-bg: #e9ecef;
+  --color-light-surface: #ffffff;
+  --color-light-text: #1e293b;
+  --color-light-muted: #64748b;
+  --color-light-border: #e2e8f0;
+
+  /* Dark‑mode palette */
+  --color-dark-bg: #0f172a;
+  --color-dark-surface: #1e293b;
+  --color-dark-text: #f1f5f9;
+  --color-dark-muted: #94a3b8;
+  --color-dark-border: #334155;
+  --color-navy: #1E4A8C;
+  --color-orange: #FF6B00;
+  --color-green: #00A86B;
+}
+
+:root {
+  --bg: var(--color-light-bg);
+  --surface: var(--color-light-surface);
+  --text: var(--color-light-text);
+  --text-muted: var(--color-light-muted);
+  --border: var(--color-light-border);
+  /* Top bar background – light mode */
+  --color-topbar: #0077b6;
+}
+
+[data-theme="dark"] {
+  --bg: var(--color-dark-bg);
+  --surface: var(--color-dark-surface);
+  --text: var(--color-dark-text);
+  --text-muted: var(--color-dark-muted);
+  --border: var(--color-dark-border);
+  /* Top bar background – dark mode becomes black */
+  --color-topbar: #000000;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Remove purple visited links everywhere */
+a, a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Dark‑map tile filter */
+.dark-map-tiles {
+  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
